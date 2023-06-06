@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,7 +21,10 @@ namespace Data.Entities
         [Required]
         public string Url { get; set; } 
 
-        [Key]
+        [Required]
+        [ForeignKey("Users")]
         public int AuthorId { get; set; }
+
+        public virtual List<LikeEntity> LikeEntity { get; set; } = new();
     }
 }

@@ -13,10 +13,9 @@ namespace Data.Entities
         public int Id { get; set; }
 
         [Required]
-        [ForeignKey("")]
+        [ForeignKey("Posts")]
         public int UserId { get; set; }
-
-        [Key]
+        
         public int PostId { get; set; }
     }
 }
