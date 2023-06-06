@@ -40,9 +40,9 @@ namespace WebAPI.Controllers
 
         [Authorize]
         [HttpGet("{UserId:int}")]
-        public async Task<IActionResult> GetById([FromRoute] int userId)
+        public async Task<IActionResult> GetById([FromRoute] int UserId)
         {
-            var userDetail = await _userService.GetUserByIdAsync(userId);
+            var userDetail = await _userService.GetUserByIdAsync(UserId);
 
             if(userDetail is null)
             {
