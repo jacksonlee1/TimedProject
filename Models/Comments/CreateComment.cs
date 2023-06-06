@@ -12,10 +12,10 @@ namespace Models.Comments
         public string Text{get;set;}
 
         [Required]
-        public string AuthorId{get;set;}
+        public int AuthorId{get;set;}
 
         [Required]
-        public string PostId{get;set;}
-        
+        public int PostId{get;set;}
+
     }
 }

@@ -1,6 +1,8 @@
 
 
 using Data;
+using Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Models.Posts;
 
 namespace Services.Posts;

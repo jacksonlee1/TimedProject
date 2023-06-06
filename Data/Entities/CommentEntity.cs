@@ -19,9 +19,13 @@ namespace Data.Entities
         [ForeignKey("User")]
         public int AuthorId { get; set; }
 
+        public UserEntity Author{get;set;}
+
         [Required]
         [ForeignKey("Posts")]
         public int PostId { get; set; }
+
+        public PostEntity Post{get;set;}
 
         public virtual List<ReplyEntity> ReplyEntity { get; set; } = new();
     }

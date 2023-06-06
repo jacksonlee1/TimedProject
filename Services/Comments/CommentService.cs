@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Data;
+using Data.Entities;
+using Microsoft.EntityFrameworkCore;
 using Models.Comments;
 
 namespace Services.Comments
@@ -33,8 +35,10 @@ namespace Services.Comments
         public async Task<IEnumerable<CommentDetail>> GetCommentByIdAsync(int id)
         {
             return await _db.Comments.Where(c => c.PostId == id).Select(c => new CommentDetail{
-                c.
-            });
+                AuthorName = c.Author.Email,
+                Text = c.Text
+
+            }).ToListAsync();
         }
 
 
