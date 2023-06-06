@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -14,10 +15,12 @@ namespace Data.Entities
         [Required]
         public string Text { get; set; } 
 
-        [Key]
+        [Required]
+        [ForeignKey("Users")]
         public int AuthorId { get; set; }
 
-        [Key]
+        [Required]
+        [ForeignKey("Comments")]
         public int ParentId { get; set; }
     }
 }
