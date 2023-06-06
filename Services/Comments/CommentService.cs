@@ -32,10 +32,10 @@ namespace Services.Comments
             
         }
 
-        public async Task<IEnumerable<CommentDetail>> GetCommentByIdAsync(int id)
+        public async Task<IEnumerable<CommentDetail>> GetCommentsByPostIdAsync(int id)
         {
             return await _db.Comments.Where(c => c.PostId == id).Select(c => new CommentDetail{
-                AuthorName = c.Author.Email,
+                AuthorId = c.AuthorId,
                 Text = c.Text
 
             }).ToListAsync();
