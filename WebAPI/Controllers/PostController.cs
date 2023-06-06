@@ -9,7 +9,7 @@ using Services.Posts;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[Controller]")]
     [ApiController]
     public class PostController : ControllerBase
     {
@@ -20,7 +20,7 @@ namespace WebAPI.Controllers
             _postService = postService;
         }
 
-    [HttpPost("Post")]
+    [HttpPost]
         public async Task<IActionResult> CreatePost([FromBody] PostCreate model)
         {
             if (!ModelState.IsValid)
@@ -37,11 +37,10 @@ namespace WebAPI.Controllers
             return BadRequest("Failed to create post.");
         }
 
-        [Authorize]
-        [HttpGet("{PostId:int}")]
-        public async Task<IActionResult> GetById([FromRoute] int PostId)
+        [HttpGet("{AuthorId:int}")]
+        public async Task<IActionResult> GetById([FromRoute] int AuthorId)
         {
-            var postDetail = await _postService.GetAllPostsAsync(PostId);
+            var postDetail = await _postService.GetAllPostsAsync(AuthorId);
 
             if(postDetail is null)
             {

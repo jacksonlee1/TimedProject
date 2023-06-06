@@ -32,7 +32,7 @@ namespace WebAPI.Controllers
             return BadRequest();
         }
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public async Task<IActionResult> GetCommentByPostId([FromRoute]int id)
         {
             if(!ModelState.IsValid) return BadRequest(ModelState);

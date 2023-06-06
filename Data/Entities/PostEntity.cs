@@ -19,9 +19,6 @@ namespace Data.Entities
         public string Text { get; set; } 
 
         [Required]
-        public string Url { get; set; } 
-
-        [Required]
         [ForeignKey("Users")]
         public int AuthorId { get; set; }
 

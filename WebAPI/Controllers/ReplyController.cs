@@ -21,7 +21,7 @@ namespace WebAPI.Controllers
             _reply = reply;
         }
 
-        [HttpPost("Reply")]
+        [HttpPost]
         public async Task<IActionResult> CreateReply([FromBody] CreateReply model)
         {
             if (!ModelState.IsValid)
@@ -38,7 +38,6 @@ namespace WebAPI.Controllers
             return BadRequest("Failed to post reply.");
         }
 
-        [Authorize]
         [HttpGet("{ReplyId:int}")]
         public async Task<IActionResult> GetById([FromRoute] int ReplyId)
         {

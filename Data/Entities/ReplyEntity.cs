@@ -22,5 +22,7 @@ namespace Data.Entities
         [Required]
         [ForeignKey("Comments")]
         public int ParentId { get; set; }
+
+        public virtual CommentEntity comment { get; set; }
     }
 }

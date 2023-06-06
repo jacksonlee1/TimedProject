@@ -9,7 +9,7 @@ using Models.User;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/controller")]
+    [Route("api/[Controller]")]
     [ApiController]
 
     public class UserController : ControllerBase
