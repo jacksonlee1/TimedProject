@@ -1,5 +1,7 @@
 
 
+using System.ComponentModel.DataAnnotations;
+
 namespace Models.Posts;
 
 public class PostCreate

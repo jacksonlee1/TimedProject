@@ -1,5 +1,8 @@
 
 
+using Data;
+using Models.Posts;
+
 namespace Services.Posts;
 
 public class PostService : IPostService
@@ -11,7 +14,7 @@ public class PostService : IPostService
         _context = context;
     }
 
-    public async Task<bool> CreatePostAsync(CreateRegister model)
+    public async Task<bool> CreatePostAsync(PostCreate model)
     {
         var entity = new PostEntity
         {
@@ -28,18 +31,18 @@ public class PostService : IPostService
 
     public async Task<IEnumerable<PostList>> GetAllPostsAsync(int id)
     {
-        var notes = await _context.Posts
+        var posts = await _context.Posts
         .Where(entity => entity.AuthorId == id)
-        .Select(entity => new PostListItem
+        .Select(entity => new PostList
         {
             Id = entity.Id,
             Title = entity.Title,
-           
+
 
         })
          .ToListAsync();
 
-        return Posts;
+        return posts;
 
     }
 }
