@@ -4,6 +4,8 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using Models.Replies;
+using Services.Replies;
 
 namespace WebAPI.Controllers
 {
@@ -12,15 +14,15 @@ namespace WebAPI.Controllers
 
     public class ReplyController : ControllerBase
     {
-        private readonly IReply _reply;
+        private readonly IReplyService _reply;
 
-        public ReplyController(IReply reply)
+        public ReplyController(IReplyService reply)
         {
             _reply = reply;
         }
 
         [HttpPost("Reply")]
-        public async Task<IActionResult> CreateReply([FromBody] ReplyCreate model)
+        public async Task<IActionResult> CreateReply([FromBody] CreateReply model)
         {
             if (!ModelState.IsValid)
             {
