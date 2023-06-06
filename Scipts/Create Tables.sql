@@ -13,6 +13,7 @@ create TABLE Posts
     [Id] int not null PRIMARY KEY IDENTITY(1,1),
     [Title] NVARCHAR(100) not null,
     [Text] NVARCHAR(250) not null,
+    [Url] NVARCHAR(1000) not null,
     [AuthorId] int FOREIGN KEY REFERENCES Users(Id),
 )
 GO

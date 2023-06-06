@@ -6,22 +6,21 @@ using System.Threading.Tasks;
 
 namespace Data.Entities
 {
-    public class UserEntity
+    public class PostEntity
     {
-            [Key]
+        [Key]
         public int Id { get; set; }
 
         [Required]
-        [EmailAddress]
-        public string Email { get; set; } 
+        public string Title { get; set; } 
 
         [Required]
-        public string Password { get; set; } 
+        public string Text { get; set; } 
 
         [Required]
-        public string? FirstName { get; set; } 
+        public string Url { get; set; } 
 
-        [Required]
-        public string? LastName { get; set; } 
+        [Key]
+        public int AuthorId { get; set; }
     }
 }
